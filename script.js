@@ -3,7 +3,9 @@ function createTask() {
     console.log(input.value);
     
     let newElement = document.createElement('li');
+    newElement.setAttribute("id", "delete");
     let btnClose = document.createElement('button');
+    btnClose.setAttribute("onclick", "deleteTask()");
     newElement.classList = 'list-group-item d-flex justify-content-between align-items-center'; //ovako se kreira novi bootstrap element
     newElement.innerText = input.value;
     btnClose.classList = 'btn text-light btn-close';
@@ -24,3 +26,14 @@ document.addEventListener("DOMContentLoaded", function() {
         })
     }
 });
+
+var delElement = document.querySelector('.btn-close');
+delElement.addEventListener("click", function(){
+    var taskDel = document.querySelector('#div');
+    taskDel.remove();
+})
+
+function deleteTask() {
+    let task1 = document.querySelector('#delete');
+    task1.remove();
+}
